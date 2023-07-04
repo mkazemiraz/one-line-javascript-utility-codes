@@ -36,7 +36,7 @@ So go ahead, explore the repository, and unlock the potential of these one-line 
 - [Check an object is empty](#check-an-object-is-empty)
 - [Reverse a string](#reverse-a-string)
 - [Calculate the number of days between two dates](#calculate-the-number-of-days-between-two-dates)
-- [Capitalize Text](#capitalize-text)
+- [Capitalize text](#capitalize-text)
 - [Generate a random string](#generate-a-random-string)
 - [Generate a random number between two numbers](#generate-a-random-number-between-two-numbers)
 - [Clear all cookies](#clear-all-cookies)
