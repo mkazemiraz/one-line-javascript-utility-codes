@@ -30,6 +30,7 @@ So go ahead, explore the repository, and unlock the potential of these one-line 
 - [Shuffle an array](#shuffle-an-array)
 - [Convert rgba color code to hexadecimal](#convert-rgba-color-code-to-hexadecimal)
 - [Convert hexadecimal color code to rgb](#convert-hexadecimal-color-code-to-rgb)
+- [Calculates the average value of a list of number](#calculates-the-average-value-of-a-list-of-number)
 
 ### Copy text to clipboard
 
@@ -137,3 +138,32 @@ const hexColor = "#ff0080";
 const rgbaColor = hexToRgba(hexColor);
 console.log(rgbaColor); // Outputs "rgba(255, 0, 128)"
 ```
+
+### Calculates the average value of a list of number
+
+```javascript
+const average = (...args) => args.reduce((a, b) => a + b, 0) / args.length;
+```
+
+#### Code Explanation
+
+This code defines a function `average` that calculates the average value of a list of numbers. The function takes any number of arguments using the rest parameter syntax (`...args`), allowing you to pass in a variable number of arguments.
+
+Here's a breakdown of how the code works:
+
+1. The `reduce` method is called on the `args` array, starting with an initial value of `0`. This method iterates over each element in the array and accumulates the sum of all the elements.
+
+2. The callback function `(a, b) => a + b` is used in the `reduce` method. It takes two parameters `a` and `b`, representing the accumulated value and the current element, respectively. The sum of `a` and `b` is computed for each iteration.
+
+3. After the `reduce` operation completes, the sum of all the elements in `args` is divided by the length of the `args` array using the `/` operator. This calculates the average value.
+
+4. The computed average value is then returned by the `average` function.
+
+#### Usage
+
+```javascript
+const result = average(4, 8, 12, 16);
+console.log(result); // Outputs 10
+```
+
+> The code provides a concise way to calculate the average of a set of numbers, making it convenient for scenarios where you need to compute the average dynamically with varying numbers of input values.
