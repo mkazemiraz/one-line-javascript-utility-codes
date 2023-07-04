@@ -33,6 +33,9 @@ So go ahead, explore the repository, and unlock the potential of these one-line 
 - [Calculates the average value of a list of number](#calculates-the-average-value-of-a-list-of-number)
 - [Check a number is even or odd](#check-a-number-is-even-or-odd)
 - [Remove duplicate elements from array](#remove-duplicate-elements-from-array)
+- [Check an object is empty](#check-an-object-is-empty)
+- [Reverse a string](#reverse-string)
+- [Calculate the number of days between two dates](#calculate-the-number-of-days-between-two-dates)
 
 ### Copy text to clipboard
 
@@ -220,3 +223,89 @@ const numbers = [1, 2, 3, 4, 4, 3, 2, 1];
 const uniqueNumbers = uniqueArray(numbers);
 console.log(uniqueNumbers); // Outputs [1, 2, 3, 4]
 ```
+
+### Check an object is empty
+
+```javascript
+const isEmptyObject = (obj) => obj && Object.keys(obj).length === 0;
+```
+
+#### Code Explanation
+
+This code defines a function `isEmptyObject` that takes an object (`obj`) as a parameter. It checks if the object is empty by using two conditions.
+
+Here's an explanation of how the code works:
+
+1. The `obj &&` condition checks if the object `obj` is truthy (not null or undefined). If `obj` is falsy, the condition short-circuits, and the function immediately returns `false`, indicating that the object is not empty.
+
+2. The `Object.keys(obj).length === 0` condition checks if the number of own properties in the object is equal to `0`. `Object.keys(obj)` retrieves an array of all the enumerable own property names of the object, and `length === 0` checks if this array is empty. If the object has no own properties, this condition evaluates to `true`.
+
+The combination of these two conditions ensures that the function returns `true` only if the object is both truthy and has no own properties, indicating that it is empty. If any of the conditions is not met, the function returns `false`, indicating that the object is not empty.
+
+#### Usage
+
+```javascript
+const emptyObj = {};
+const nonEmptyObj = { key: "value" };
+const nullObj = null;
+
+console.log(isEmptyObject(emptyObj)); // Outputs true
+console.log(isEmptyObject(nonEmptyObj)); // Outputs false
+console.log(isEmptyObject(nullObj)); // Outputs false
+```
+
+### Reverse a string
+
+```javascript
+const reverseStr = (str) => (str ?? "").split("").reverse().join("");
+```
+
+#### Code Explanation
+
+This code defines a function called `reverseStr` that takes a string `str` as a parameter. It performs the following operations to reverse the string:
+
+1. `str.split('')` splits the string into an array of individual characters. Each character becomes an element of the array.
+
+2. `.reverse()` reverses the order of elements in the array, effectively reversing the order of characters in the string.
+
+3. `.join('')` joins the elements of the array back into a string, with no separator between them. This results in the reversed string.
+
+#### Usage
+
+```javascript
+console.log(reverseStr("Hello")); // Outputs 'olleH'
+```
+
+### Calculate the number of days between two dates
+
+```javascript
+const dayDiff = (d1, d2) =>
+  Math.ceil(Math.abs(d1.getTime() - d2.getTime()) / 86400000);
+```
+
+#### Code Explanation
+
+This code defines a function called `dayDiff` that calculates the number of days between two given dates (`d1` and `d2`).
+
+Here's a breakdown of how the code works:
+
+1. `d1.getTime()` and `d2.getTime()` retrieve the numeric representation of the given dates in milliseconds since January 1, 1970 (Unix timestamp).
+
+2. `Math.abs(d1.getTime() - d2.getTime())` calculates the absolute difference between the two timestamps, representing the duration in milliseconds.
+
+3. The result of the difference is divided by `86400000`, which is the number of milliseconds in a day, to convert the duration from milliseconds to days.
+
+4. `Math.ceil()` rounds up the calculated number of days to the nearest whole number, ensuring that partial days are rounded up.
+
+5. The final result is returned by the arrow function.
+
+#### Usage
+
+```javascript
+const date1 = new Date("2023-07-01");
+const date2 = new Date("2023-07-05");
+
+console.log(dayDiff(date1, date2)); // Outputs 4
+```
+
+> Please note that this code assumes valid input values for `dayDiff` function.It may throw errors or unexpected results if invalid inputs are provided.
