@@ -31,6 +31,8 @@ So go ahead, explore the repository, and unlock the potential of these one-line 
 - [Convert rgba color code to hexadecimal](#convert-rgba-color-code-to-hexadecimal)
 - [Convert hexadecimal color code to rgb](#convert-hexadecimal-color-code-to-rgb)
 - [Calculates the average value of a list of number](#calculates-the-average-value-of-a-list-of-number)
+- [Check a number is even or odd](#check-a-number-is-even-or-odd)
+- [Remove duplicate elements from array](#remove-duplicate-elements-from-array)
 
 ### Copy text to clipboard
 
@@ -167,3 +169,54 @@ console.log(result); // Outputs 10
 ```
 
 > The code provides a concise way to calculate the average of a set of numbers, making it convenient for scenarios where you need to compute the average dynamically with varying numbers of input values.
+
+### Check a number is even or odd
+
+```javascript
+const isOdd = (num) => num % 2 !== 0;
+```
+
+#### Code Explanation
+
+This code defines a function `isOdd` that takes a number (`num`) as a parameter. It determines whether the given number is odd or not by performing a simple check.
+
+Here's an explanation of how the code works:
+
+1. The code uses the modulo operator (`%`) to divide the `num` by `2`. The modulo operation calculates the remainder when `num` is divided by `2`.
+
+2. The result of the modulo operation is compared to `0` using the strict inequality operator (`!==`). If the result is not equal to `0`, it means that the number is odd because odd numbers leave a remainder of `1` when divided by `2`.
+
+3. The function returns a boolean value (`true` or `false`) based on the result of the comparison. If the number is odd, the expression `num % 2 !== 0` evaluates to `true`, indicating that the number is odd. Otherwise, if the number is even, the expression evaluates to `false`.
+
+#### Usage
+
+```javascript
+console.log(isOdd(5)); // Outputs true
+console.log(isOdd(10)); // Outputs false
+```
+
+### Remove duplicate elements from array
+
+```javascript
+const uniqueArray = (arr) => [...new Set(arr)];
+```
+
+#### Code Explanation
+
+This code defines a function `uniqueArray` that takes an array (`arr`) as a parameter. It returns a new array that contains only the unique elements from the input array, removing any duplicate values.
+
+Here's an explanation of how the code works:
+
+1. The code uses the `Set` object to create a new set `new Set(arr)` from the input array. The `Set` object only allows unique values, automatically eliminating any duplicate elements.
+
+2. The spread syntax (`...`) is used to convert the set back into an array. By spreading the elements of the set within a new array `[...new Set(arr)]`, a new array is created with only the unique elements.
+
+3. The resulting array, containing only the unique elements from the input array, is then returned by the `uniqueArray` function.
+
+#### Usage
+
+```javascript
+const numbers = [1, 2, 3, 4, 4, 3, 2, 1];
+const uniqueNumbers = uniqueArray(numbers);
+console.log(uniqueNumbers); // Outputs [1, 2, 3, 4]
+```
