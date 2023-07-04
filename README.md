@@ -308,4 +308,4 @@ const date2 = new Date("2023-07-05");
 console.log(dayDiff(date1, date2)); // Outputs 4
 ```
 
-> Please note that this code assumes valid input values for `dayDiff` function.It may throw errors or unexpected results if invalid inputs are provided.
+> Please note that this code assumes valid input values for `dayDiff` function. It may throw errors or unexpected results if invalid inputs are provided.
