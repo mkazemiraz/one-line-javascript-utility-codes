@@ -27,6 +27,7 @@ So go ahead, explore the repository, and unlock the potential of these one-line 
 ## Table of Contents
 
 - [Copy text to clipboard](#copy-text-to-clipboard)
+- [Shuffle an array](#shuffle-an-array)
 
 ### Copy text to clipboard
 
@@ -49,3 +50,27 @@ copyToClipboard("Hello, Mkazemiraz!");
 ```
 
 > Note that this function relies on the availability of the `navigator.clipboard` API, which is supported by most modern browsers. If the API is not available in the user's browser, this code may not function as intended, and appropriate fallback mechanisms should be considered.
+
+### Shuffle an array
+
+```javascript
+const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
+```
+
+#### Code Explanation
+
+The provided code defines a JavaScript function called `shuffleArray` that takes an array (`array`) as a parameter. The purpose of this function is to shuffle the elements of the array randomly.
+
+The `sort` method is applied to the `array`, and a comparator function is passed as an argument. The comparator function uses `Math.random()` to generate a random number between 0 and 1. By subtracting 0.5 from this random number, the comparator function returns a positive or negative value, randomly changing the order of the array elements during the sorting process.
+
+By leveraging the built-in `sort` method with a random comparator, this one-liner provides a concise way to shuffle an array in JavaScript.
+
+#### Usage
+
+```javascript
+const myArray = [1, 2, 3, 4, 5];
+shuffleArray(myArray);
+console.log(myArray); // Outputs a randomly shuffled version of the array
+```
+
+> Please note that this shuffling technique is not guaranteed to produce perfectly uniform or unbiased results, especially for large arrays. For more rigorous shuffling requirements, you may need to explore alternative algorithms or libraries.
