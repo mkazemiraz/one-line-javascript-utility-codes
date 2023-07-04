@@ -34,7 +34,7 @@ So go ahead, explore the repository, and unlock the potential of these one-line 
 - [Check a number is even or odd](#check-a-number-is-even-or-odd)
 - [Remove duplicate elements from array](#remove-duplicate-elements-from-array)
 - [Check an object is empty](#check-an-object-is-empty)
-- [Reverse a string](#reverse-string)
+- [Reverse a string](#reverse-a-string)
 - [Calculate the number of days between two dates](#calculate-the-number-of-days-between-two-dates)
 
 ### Copy text to clipboard
