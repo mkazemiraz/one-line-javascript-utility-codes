@@ -29,6 +29,7 @@ So go ahead, explore the repository, and unlock the potential of these one-line 
 - [Copy text to clipboard](#copy-text-to-clipboard)
 - [Shuffle an array](#shuffle-an-array)
 - [Convert rgba color code to hexadecimal](#convert-rgba-color-code-to-hexadecimal)
+- [Convert hexadecimal color code to rgb](#convert-hexadecimal-color-code-to-rgb)
 
 ### Copy text to clipboard
 
