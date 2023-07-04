@@ -28,6 +28,7 @@ So go ahead, explore the repository, and unlock the potential of these one-line 
 
 - [Copy text to clipboard](#copy-text-to-clipboard)
 - [Shuffle an array](#shuffle-an-array)
+- [Convert rgba color code to hexadecimal](#convert-rgba-color-code-to-hexadecimal)
 
 ### Copy text to clipboard
 
@@ -74,3 +75,33 @@ console.log(myArray); // Outputs a randomly shuffled version of the array
 ```
 
 > Please note that this shuffling technique is not guaranteed to produce perfectly uniform or unbiased results, especially for large arrays. For more rigorous shuffling requirements, you may need to explore alternative algorithms or libraries.
+
+### Convert rgba color code to hexadecimal
+
+```javascript
+const rgbToHex = (r, g, b) =>
+  "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+```
+
+#### Code Explanation
+
+This code defines a function `rgbToHex` that takes three parameters (`r`, `g`, and `b`) representing the red, green, and blue components of an RGB color code, respectively. It converts the RGB color code to its corresponding hexadecimal representation.
+
+The code works by performing bitwise operations and string manipulation to convert the RGB components to hexadecimal values. Here's how it works:
+
+1. The expression `(1 << 24) + (r << 16) + (g << 8) + b` combines the RGB components into a single integer value. Bitwise shift operators (`<<`) are used to position each component at the appropriate bit position: red at 16 bits, green at 8 bits, and blue at 0 bits. The `<< 24` is used to ensure that the highest 8 bits are set to 1, as a placeholder for the alpha component (not included in this code).
+
+2. The resulting integer value is converted to a hexadecimal string using `.toString(16)`. The `16` parameter specifies the radix for the conversion, which represents the base of the numeral system (in this case, hexadecimal).
+
+3. The `.slice(1)` method is applied to remove the leading "1" from the hexadecimal string. This is necessary because the bitwise operation (`1 << 24`) sets the highest bit to 1, which adds an extra digit in the hexadecimal representation.
+
+4. Finally, the "#" symbol is concatenated with the resulting hexadecimal string to form the complete hexadecimal color representation.
+
+#### Usage
+
+```javascript
+const hexColor = rgbToHex(255, 0, 128);
+console.log(hexColor); // Outputs "#ff0080"
+```
+
+> Please note that this code assumes valid input values for the RGB components (`r`, `g`, and `b`) within the range of 0 to 255. If you have different requirements or need to handle edge cases, you may need to modify the code accordingly.
