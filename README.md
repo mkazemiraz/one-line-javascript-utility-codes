@@ -1,4 +1,4 @@
-# JavaScript One-line Utility Codes
+# One-line JavaScript Utility Codes
 
 ![One-line JavaScript Utility Codes](./assets/cover.png)
 
