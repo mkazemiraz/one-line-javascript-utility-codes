@@ -1,6 +1,6 @@
 # JavaScript One-line Utility Codes
 
-![JavaScript One-line Utility Codes](./assets/cover.png)
+![One-line JavaScript Utility Codes](./assets/cover.png)
 
 If you like this content, you can ping me or follow me on Twitter 👊
 
@@ -8,7 +8,7 @@ If you like this content, you can ping me or follow me on Twitter 👊
 
 ## Introduction
 
-😍 Welcome to the JavaScript One-Line Utility Codes repository! Here, we aim to provide you with a curated collection of powerful and concise JavaScript utility functions that can be written in just one line of code.
+😍 Welcome to the One-Line JavaScript Utility Codes repository! Here, we aim to provide you with a curated collection of powerful and concise JavaScript utility functions that can be written in just one line of code.
 
 ### Motivation
 
@@ -105,3 +105,34 @@ console.log(hexColor); // Outputs "#ff0080"
 ```
 
 > Please note that this code assumes valid input values for the RGB components (`r`, `g`, and `b`) within the range of 0 to 255. If you have different requirements or need to handle edge cases, you may need to modify the code accordingly.
+
+### Convert hexadecimal color code to rgb
+
+```javascript
+const hexToRgba = (hex) => {
+  const [r, g, b] = hex.match(/\w\w/g).map((val) => parseInt(val, 16));
+  return `rgba(${r}, ${g}, ${b})`;
+};
+```
+
+#### Code Explanation
+
+This code defines a function `hexToRgba` that takes a hexadecimal color code as a parameter (`hex`). It converts the hexadecimal color code to its corresponding RGBA representation.
+
+Here's a breakdown of how the code works:
+
+1. The code uses the `match` method on the `hex` string to extract pairs of two characters (`/\w\w/g`). Each pair represents the red, green, and blue components of the color in hexadecimal format.
+
+2. The `map` method is then applied to the extracted pairs of characters. Within the `map` callback function, `parseInt(val, 16)` is used to convert each pair of characters from hexadecimal to decimal.
+
+3. The resulting decimal values for the red, green, and blue components are destructured into the variables `r`, `g`, and `b`, respectively.
+
+4. Finally, the function returns a string representing the RGBA color value using the interpolated values of `r`, `g`, and `b`.
+
+#### Usage
+
+```javascript
+const hexColor = "#ff0080";
+const rgbaColor = hexToRgba(hexColor);
+console.log(rgbaColor); // Outputs "rgba(255, 0, 128)"
+```
