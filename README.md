@@ -36,6 +36,10 @@ So go ahead, explore the repository, and unlock the potential of these one-line 
 - [Check an object is empty](#check-an-object-is-empty)
 - [Reverse a string](#reverse-a-string)
 - [Calculate the number of days between two dates](#calculate-the-number-of-days-between-two-dates)
+- [Capitalize Text](#capitalize-text)
+- [Generate a random string](#generate-a-random-string)
+- [Generate a random number between two numbers](#generate-a-random-number-between-two-numbers)
+- [Clear all cookies](#clear-all-cookies)
 
 ### Copy text to clipboard
 
@@ -309,3 +313,126 @@ console.log(dayDiff(date1, date2)); // Outputs 4
 ```
 
 > Please note that this code assumes valid input values for `dayDiff` function. It may throw errors or unexpected results if invalid inputs are provided.
+
+### Capitalize Text
+
+```javascript
+const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+```
+
+#### Code Explanation
+
+This code defines a function called `capitalize` that capitalizes the first character of a given string `str`.
+
+Here's a breakdown of how the code works:
+
+1. `str.charAt(0)` retrieves the first character of the string `str`.
+
+2. `.toUpperCase()` converts the first character to uppercase.
+
+3. `str.slice(1)` extracts the remaining characters of the string starting from the second character.
+
+4. The capitalized first character and the remaining characters are concatenated using the `+` operator.
+
+5. The final result is returned by the arrow function.
+
+#### Usage
+
+```javascript
+console.log(capitalize("hello")); // Outputs 'Hello'
+```
+
+### Generate a random string
+
+```javascript
+const generateRandomString = (length) =>
+  [...Array(length)].map(() => Math.random().toString(36)[2]).join("");
+```
+
+#### Code Explanation
+
+This code defines a function called `generateRandomString` that generates a random string of a specified `length`.
+
+Here's a breakdown of how the code works:
+
+1. `[...Array(length)]` creates an array of length `length` with empty slots.
+
+2. `.map(() => Math.random().toString(36)[2])` maps over each element of the array and generates a random string character by calling `Math.random().toString(36)[2]`. The `Math.random()` function generates a random decimal between 0 and 1, `toString(36)` converts it to a base-36 string, and `[2]` selects the third character of the string.
+
+3. `.join('')` joins all the generated random string characters together into a single string.
+
+4. The final result, which is the randomly generated string of the specified `length`, is returned by the arrow function.
+
+#### Usage
+
+```javascript
+console.log(generateRandomString(8)); // Outputs a random string of length 8
+```
+
+> Please note that this code assumes valid input values for `generateRandomString` function. It may throw errors or unexpected results if invalid inputs are provided.
+
+### Generate a random number between two numbers
+
+```javascript
+const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+```
+
+#### Code Explanation
+
+This code defines a function called `random` that generates a random integer between the specified `min` and `max` values (inclusive).
+
+Here's a breakdown of how the code works:
+
+1. `Math.random()` generates a random decimal between 0 (inclusive) and 1 (exclusive).
+
+2. `(max - min + 1)` calculates the range of possible values, including both `min` and `max`.
+
+3. `Math.floor(...)` rounds down the result of the calculation to the nearest integer, ensuring that the generated random number is an integer.
+
+4. The final result, which is the randomly generated integer within the specified range, is returned by the arrow function.
+
+#### Usage
+
+```javascript
+console.log(random(1, 10)); // Outputs a random integer between 1 and 10 (inclusive)
+```
+
+### Clear all cookies
+
+```javascript
+const clearCookies = () =>
+  document.cookie
+    .split(";")
+    .forEach(
+      (cookie) =>
+        (document.cookie = cookie
+          .replace(/^ +/, "")
+          .replace(/=.*/, `=;expires=${new Date(0).toUTCString()};path=/`))
+    );
+```
+
+#### Code Explanation
+
+This code defines a function called `clearCookies` that clears all cookies in the current browser session.
+
+Here's a simplified explanation of how the code works:
+
+1. `document.cookie` retrieves the current cookie string.
+
+2. `.split(';')` splits the cookie string into individual cookies.
+
+3. `.forEach(cookie => ...)` iterates over each cookie.
+
+4. `cookie.replace(/^ +/, '')` removes leading whitespace from the cookie.
+
+5. `.replace(/=.*/, `=;expires=${new Date(0).toUTCString()};path=/`)` replaces the cookie's value with an empty value and sets its expiration date to the past, effectively deleting the cookie.
+
+By calling `clearCookies()`, all cookies will be cleared in the current browser session.
+
+#### Usage
+
+```javascript
+clearCookies();
+```
+
+> It's important to note that manipulating and clearing cookies directly in JavaScript has limitations and considerations based on domain and security settings. Therefore, it's essential to use cookie operations responsibly and be aware of any potential implications.
