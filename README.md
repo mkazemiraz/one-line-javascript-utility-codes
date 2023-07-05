@@ -647,7 +647,11 @@ console.log(isEqual(obj1, obj3)); // false
 ### Add a new item to the array at the specified position
 
 ```javascript
-const isEqual = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+const insert = (arr, index, newItem) => [
+  ...arr.slice(0, index),
+  newItem,
+  ...arr.slice(index),
+];
 ```
 
 #### Code Explanation
