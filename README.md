@@ -44,6 +44,7 @@ So go ahead, explore the repository, and unlock the potential of these one-line 
 - [Generate a random boolean](#generate-a-random-boolean)
 - [Identify the type of a data](#identify-the-type-of-a-data)
 - [Calculate percent]("#calculate-percent)
+- [Get a random item of array](#get-a-random-item-of-array)
 
 ### Copy text to clipboard
 
@@ -544,3 +545,34 @@ const total = 200;
 const percentage = calculatePercent(value, total);
 console.log(percentage); // Output: 38
 ```
+
+### Get a random item of array
+
+```javascript
+const getRandomItem = (array) =>
+  array[Math.floor(Math.random() * array.length)];
+```
+
+#### Code Explanation
+
+This code defines a function called `getRandomItem` that takes an array as a parameter. The purpose of this function is to return a random item from the given array.
+
+Here's how it works:
+
+1. `Math.random()` generates a random floating-point number between 0 (inclusive) and 1 (exclusive).
+2. `Math.random() * array.length` multiplies the random number by the length of the array. This will give a random number between 0 (inclusive) and the length of the array (exclusive).
+3. `Math.floor()` rounds down the random number to the nearest whole number, ensuring it becomes a valid index within the range of the array indices.
+4. `array[Math.floor(Math.random() * array.length)]` uses the calculated random index to retrieve the corresponding item from the array.
+5. The retrieved item is then returned as the result of the function.
+
+In summary, this code allows you to randomly select an item from an array by generating a random index and retrieving the corresponding item from that index.
+
+#### Usage
+
+```javascript
+const fruits = ["apple", "banana", "orange", "grape", "kiwi"];
+const randomFruit = getRandomItem(fruits);
+console.log(randomFruit);
+```
+
+> please note that the code assumes that the input array is not empty.
