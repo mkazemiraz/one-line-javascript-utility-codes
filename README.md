@@ -2,6 +2,8 @@
 
 ![One-line JavaScript Utility Codes](./assets/cover.png)
 
+[![Open Source Helpers](https://www.codetriage.com/mkazemiraz/one-line-javascript-utility-codes/badges/users.svg)](https://www.codetriage.com/mkazemiraz/one-line-javascript-utility-codes)
+
 If you like this content, you can ping me or follow me on Twitter 👊
 
 [![Twitter URL](https://img.shields.io/twitter/url?url=https%3A%2F%2Ftwitter.com%2Fmkazemiraz&style=social&logo=twitter&label=Follow%20%40mkazemiraz)](https://twitter.com/mkazemiraz)
