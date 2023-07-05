@@ -49,6 +49,7 @@ So go ahead, explore the repository, and unlock the potential of these one-line 
 - [Get a random item of array](#get-a-random-item-of-array)
 - [Sort array of objects based on the values of the specified key](#sort-array-of-objects-based-on-the-values-of-the-specified-key)
 - [Check if arrays / objects are equal](#check-if-arrays--objects-are-equal)
+- [Add a new item to the array at the specified position](#add-a-new-item-to-the-array-at-the-specified-position)
 
 ### Copy text to clipboard
 
@@ -642,3 +643,32 @@ console.log(isEqual(obj1, obj3)); // false
 ```
 
 > While this approach may work for simple objects, it has limitations when dealing with complex objects or objects containing functions or circular references. The JSON.stringify method is not designed to handle all types of objects correctly. To properly check for object equality, you can use a deep comparison algorithm that traverses the object properties recursively.
+
+### Add a new item to the array at the specified position
+
+```javascript
+const isEqual = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+```
+
+#### Code Explanation
+
+This code defines a function called `insert` that takes three parameters: an array `arr`, an index `index`, and a new item `newItem`.
+
+The function uses the spread syntax (`...`) to create a new array. Here's a breakdown of the code:
+
+1. `arr.slice(0, index)`: This extracts a portion of the original array `arr` from the beginning (index `0`) up to, but not including, the specified `index`. It represents the elements that come before the insertion point.
+
+2. `newItem`: This is the new item that you want to insert into the array.
+
+3. `arr.slice(index)`: This extracts a portion of the original array `arr` starting from the specified `index` to the end. It represents the elements that come after the insertion point.
+
+This code allows you to insert a new item into an array at a specific index while preserving the order of the existing elements.
+
+#### Usage
+
+```javascript
+const myArray = [1, 2, 3, 4];
+const newArray = insert(myArray, 2, "new item");
+
+console.log(newArray); // [1, 2, "new item", 3, 4]
+```
