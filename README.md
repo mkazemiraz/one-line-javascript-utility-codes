@@ -45,6 +45,7 @@ So go ahead, explore the repository, and unlock the potential of these one-line 
 - [Identify the type of a data](#identify-the-type-of-a-data)
 - [Calculate percent]("#calculate-percent)
 - [Get a random item of array](#get-a-random-item-of-array)
+- [Sort array of objects based on the values of the specified key](#sort-array-of-objects-based-on-the-values-of-the-specified-key)
 
 ### Copy text to clipboard
 
@@ -576,3 +577,30 @@ console.log(randomFruit);
 ```
 
 > please note that the code assumes that the input array is not empty.
+
+### Sort array of objects based on the values of the specified key
+
+```javascript
+const sortBy = (arr, key) =>
+  arr.sort((a, b) => (a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0));
+```
+
+The code defines a function called `sortBy` that takes an array (`arr`) and a key (`key`) as parameters. It sorts the array of objects based on the values of the specified key. The `sort()` method is used on the array, and a comparison function is provided as an argument.
+
+The comparison function `(a, b) => a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0` compares two objects `a` and `b` based on the values of the specified key. If the value of `a[key]` is greater than `b[key]`, it returns `1`, indicating that `a` should come after `b`. If the value of `a[key]` is less than `b[key]`, it returns `-1`, indicating that `a` should come before `b`. If the values are equal, it returns `0`, indicating that the order of `a` and `b` should remain unchanged.
+
+By using this function, you can sort an array of objects based on a specific key in ascending order.
+
+#### Usage
+
+```javascript
+const items = [
+  { name: "Apple", price: 2.5 },
+  { name: "Banana", price: 1.5 },
+  { name: "Orange", price: 2.0 },
+  { name: "Grape", price: 3.0 },
+];
+
+const sortedItems = sortBy(items, "price");
+console.log(sortedItems); // [{ name: 'Banana', price: 1.5 }, { name: 'Orange', price: 2.0 }, { name: 'Apple', price: 2.5 }, { name: 'Grape', price: 3.0 }]
+```
