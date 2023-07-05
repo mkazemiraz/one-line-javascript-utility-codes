@@ -48,6 +48,7 @@ So go ahead, explore the repository, and unlock the potential of these one-line 
 - [Calculate percent]("#calculate-percent)
 - [Get a random item of array](#get-a-random-item-of-array)
 - [Sort array of objects based on the values of the specified key](#sort-array-of-objects-based-on-the-values-of-the-specified-key)
+- [Check if arrays / objects are equal](#check-if-arrays--objects-are-equal)
 
 ### Copy text to clipboard
 
@@ -453,7 +454,7 @@ const goToTop = () => window.scrollTo(0, 0);
 
 #### Code Explanation
 
-The given code defines a constant variable named `goToTop`, which is assigned an arrow function.
+This code defines a constant variable named `goToTop`, which is assigned an arrow function.
 
 The arrow function has no parameters and consists of a single statement: `window.scrollTo(0, 0)`.
 
@@ -500,7 +501,7 @@ const typeOf = (data) =>
 
 #### Code Explanation
 
-The code defines a function called `typeOf` that takes a parameter called `data`. This function determines the type of the `data` object and returns it as a lowercase string.
+This code defines a function called `typeOf` that takes a parameter called `data`. This function determines the type of the `data` object and returns it as a lowercase string.
 
 The code achieves this by using the `Object.prototype.toString.call(data)` method. This method returns a string representation of the object's type. By calling `slice(8, -1)` on the result, the code extracts the type portion from the string representation. Finally, `toLowerCase()` is used to convert the type string to lowercase.
 
@@ -529,7 +530,7 @@ const calculatePercent = (value, total) => Math.round((value / total) * 100);
 
 #### Code Explanation
 
-The code you provided defines a function called `calculatePercent` that takes two parameters: `value` and `total`. This function calculates the percentage of `value` relative to `total` and returns the result as a rounded whole number.
+This code defines a function called `calculatePercent` that takes two parameters: `value` and `total`. This function calculates the percentage of `value` relative to `total` and returns the result as a rounded whole number.
 
 Here's a breakdown of the code:
 
@@ -587,7 +588,9 @@ const sortBy = (arr, key) =>
   arr.sort((a, b) => (a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0));
 ```
 
-The code defines a function called `sortBy` that takes an array (`arr`) and a key (`key`) as parameters. It sorts the array of objects based on the values of the specified key. The `sort()` method is used on the array, and a comparison function is provided as an argument.
+#### Code Explanation
+
+This code defines a function called `sortBy` that takes an array (`arr`) and a key (`key`) as parameters. It sorts the array of objects based on the values of the specified key. The `sort()` method is used on the array, and a comparison function is provided as an argument.
 
 The comparison function `(a, b) => a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0` compares two objects `a` and `b` based on the values of the specified key. If the value of `a[key]` is greater than `b[key]`, it returns `1`, indicating that `a` should come after `b`. If the value of `a[key]` is less than `b[key]`, it returns `-1`, indicating that `a` should come before `b`. If the values are equal, it returns `0`, indicating that the order of `a` and `b` should remain unchanged.
 
@@ -606,3 +609,36 @@ const items = [
 const sortedItems = sortBy(items, "price");
 console.log(sortedItems); // [{ name: 'Banana', price: 1.5 }, { name: 'Orange', price: 2.0 }, { name: 'Apple', price: 2.5 }, { name: 'Grape', price: 3.0 }]
 ```
+
+### Check if arrays / objects are equal
+
+```javascript
+const isEqual = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+```
+
+#### Code Explanation
+
+This code defines a function named `isEqual` that checks if two objects `a` and `b` are equal. It uses the `JSON.stringify` method to convert the objects to JSON strings and then compares the strings for equality using the `===` operator.
+
+Here's a breakdown of the code:
+
+1. `const isEqual = (a, b) =>`: This declares a function named `isEqual` with two parameters `a` and `b`. The function is defined using arrow function syntax.
+
+2. `JSON.stringify(a)`: This converts the object `a` to a JSON string representation.
+
+3. `JSON.stringify(b)`: This converts the object `b` to a JSON string representation.
+
+4. `===`: This is the strict equality operator that checks if the two JSON strings are exactly equal, including their characters and order.
+
+#### Usage
+
+```javascript
+const obj1 = { name: "John", age: 30 };
+const obj2 = { name: "John", age: 30 };
+const obj3 = { name: "Jane", age: 25 };
+
+console.log(isEqual(obj1, obj2)); // true
+console.log(isEqual(obj1, obj3)); // false
+```
+
+> While this approach may work for simple objects, it has limitations when dealing with complex objects or objects containing functions or circular references. The JSON.stringify method is not designed to handle all types of objects correctly. To properly check for object equality, you can use a deep comparison algorithm that traverses the object properties recursively.
