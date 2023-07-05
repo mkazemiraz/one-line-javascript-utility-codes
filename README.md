@@ -40,6 +40,9 @@ So go ahead, explore the repository, and unlock the potential of these one-line 
 - [Generate a random string](#generate-a-random-string)
 - [Generate a random number between two numbers](#generate-a-random-number-between-two-numbers)
 - [Clear all cookies](#clear-all-cookies)
+- [Scroll to top](#scroll-to-top)
+- [Generate a random boolean](#generate-a-random-boolean)
+- [Identify the type of a data](#identify-the-type-of-a-data)
 
 ### Copy text to clipboard
 
@@ -436,3 +439,79 @@ clearCookies();
 ```
 
 > It's important to note that manipulating and clearing cookies directly in JavaScript has limitations and considerations based on domain and security settings. Therefore, it's essential to use cookie operations responsibly and be aware of any potential implications.
+
+### Scroll to top
+
+```javascript
+const goToTop = () => window.scrollTo(0, 0);
+```
+
+#### Code Explanation
+
+The given code defines a constant variable named `goToTop`, which is assigned an arrow function.
+
+The arrow function has no parameters and consists of a single statement: `window.scrollTo(0, 0)`.
+
+The `window.scrollTo()` method is used to scroll the window to a specified position. In this case, it is scrolling to the coordinates (0, 0), which represents the top-left corner of the window.
+
+So, when the `goToTop` function is called, it will scroll the window to the top, bringing the top of the page into view.
+
+#### Usage
+
+```javascript
+goToTop();
+```
+
+### Generate a random boolean
+
+```javascript
+const randomBoolean = () => Math.random() >= 0.5;
+```
+
+#### Code Explanation
+
+This code defines a function called `randomBoolean` that returns a random boolean value.
+
+Here's how it works:
+
+- The `Math.random()` function generates a random decimal number between 0 (inclusive) and 1 (exclusive).
+- The expression `Math.random() >= 0.5` compares the generated random number with 0.5. If the random number is greater than or equal to 0.5, it will evaluate to `true`; otherwise, it will evaluate to `false`.
+- The function `randomBoolean` encapsulates this logic and returns the resulting boolean value.
+
+In summary, when you call the `randomBoolean` function, it will generate a random boolean value with a roughly 50% chance of being `true` and a 50% chance of being `false`.
+
+#### Usage
+
+```javascript
+randomBoolean();
+```
+
+### Identify the type of a data
+
+```javascript
+const typeOf = (data) =>
+  Object.prototype.toString.call(data).slice(8, -1).toLowerCase();
+```
+
+#### Code Explanation
+
+The code defines a function called `typeOf` that takes a parameter called `data`. This function determines the type of the `data` object and returns it as a lowercase string.
+
+The code achieves this by using the `Object.prototype.toString.call(data)` method. This method returns a string representation of the object's type. By calling `slice(8, -1)` on the result, the code extracts the type portion from the string representation. Finally, `toLowerCase()` is used to convert the type string to lowercase.
+
+#### Usage
+
+```javascript
+const myArray = [1, 2, 3];
+const myObject = { name: "John", age: 25 };
+const myFunction = () => {
+  console.log("Hello!");
+};
+
+console.log(typeOf(myArray)); // Output: "array"
+console.log(typeOf(myObject)); // Output: "object"
+console.log(typeOf(myFunction)); // Output: "function"
+console.log(typeOf(42)); // Output: "number"
+console.log(typeOf("Hello")); // Output: "string"
+console.log(typeOf(true)); // Output: "boolean"
+```
