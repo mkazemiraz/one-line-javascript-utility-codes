@@ -43,6 +43,7 @@ So go ahead, explore the repository, and unlock the potential of these one-line 
 - [Scroll to top](#scroll-to-top)
 - [Generate a random boolean](#generate-a-random-boolean)
 - [Identify the type of a data](#identify-the-type-of-a-data)
+- [Calculate percent]("#calculate-percent)
 
 ### Copy text to clipboard
 
@@ -514,4 +515,32 @@ console.log(typeOf(myFunction)); // Output: "function"
 console.log(typeOf(42)); // Output: "number"
 console.log(typeOf("Hello")); // Output: "string"
 console.log(typeOf(true)); // Output: "boolean"
+```
+
+### Calculate percent
+
+```javascript
+const calculatePercent = (value, total) => Math.round((value / total) * 100);
+```
+
+#### Code Explanation
+
+The code you provided defines a function called `calculatePercent` that takes two parameters: `value` and `total`. This function calculates the percentage of `value` relative to `total` and returns the result as a rounded whole number.
+
+Here's a breakdown of the code:
+
+1. `Math.round((value / total) * 100)`: This expression calculates the ratio of `value` to `total` by dividing `value` by `total` and then multiplying the result by 100 to get the percentage. The `Math.round()` function is used to round the result to the nearest whole number.
+
+2. `const calculatePercent = (value, total) =>`: This line defines the `calculatePercent` function with two parameters: `value` and `total`. These parameters represent the values for which you want to calculate the percentage.
+
+In summary, when you call the `calculatePercent` function with a specific `value` and `total`, it will calculate the percentage of `value` relative to `total` and return the result as a rounded whole number.
+
+#### Usage
+
+```javascript
+const value = 75;
+const total = 200;
+
+const percentage = calculatePercent(value, total);
+console.log(percentage); // Output: 38
 ```
