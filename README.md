@@ -50,6 +50,7 @@ So go ahead, explore the repository, and unlock the potential of these one-line 
 - [Sort array of objects based on the values of the specified key](#sort-array-of-objects-based-on-the-values-of-the-specified-key)
 - [Check if arrays / objects are equal](#check-if-arrays--objects-are-equal)
 - [Add a new item to the array at the specified position](#add-a-new-item-to-the-array-at-the-specified-position)
+- [Add commas to number](#add-commas-to-number)
 
 ### Copy text to clipboard
 
@@ -675,4 +676,37 @@ const myArray = [1, 2, 3, 4];
 const newArray = insert(myArray, 2, "new item");
 
 console.log(newArray); // [1, 2, "new item", 3, 4]
+```
+
+### Add commas to number
+
+```javascript
+const addCommasToNumber = (value) =>
+  value.toString().replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
+```
+
+#### Code Explanation
+
+This code defines a function called `addCommasToNumber` that formats a numeric value by adding commas as thousands separators.
+
+Here's a breakdown of the code:
+
+1. The function takes a `value` parameter, which represents the numeric value to be formatted.
+
+2. `value.toString()` converts the input value to a string.
+
+3. The `replace()` method is called on the string representation of the value.
+
+4. The regular expression `/(\d)(?=(\d{3})+\.)/g` is used to match a single digit (`\d`) that is followed by groups of three digits (`(\d{3})`) and a decimal point (`\.`).
+
+5. The positive lookahead `(?=(\d{3})+\.)/g` ensures that the matching digit is followed by multiple groups of three digits and a decimal point, but it doesn't include these characters in the matched result.
+
+6. In the replacement parameter `"$1,"`, the `$1` represents the matched digit captured in a group, and the comma is added after the matched digit.
+
+7. The final result is a string representation of the value with commas added as thousands separators.
+
+#### Usage
+
+```javascript
+console.log(addCommasToNumber(12345.6789)); // 12,345.6789
 ```
