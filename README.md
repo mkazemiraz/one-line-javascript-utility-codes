@@ -52,6 +52,7 @@ So go ahead, explore the repository, and unlock the potential of these one-line 
 - [Add a new item to the array at the specified position](#add-a-new-item-to-the-array-at-the-specified-position)
 - [Add commas to number](#add-commas-to-number)
 - [Flatten a nested array](#flatten-a-nested-array)
+- [Check if a Number is Prime](#check-if-a-number-is-prime)
 
 ### Copy text to clipboard
 
@@ -763,4 +764,35 @@ Here's a breakdown of the code:
 ```javascript
 const numbers = [1, 2, [3, 4, [5, 6]], 7];
 console.log(flattenArray(numbers)); // [1, 2, 3, 4, 5, 6, 7]
+```
+
+### Check if a Number is Prime
+
+```javascript
+const isPrime = (num) =>
+  num > 1 &&
+  Array.from({ length: Math.ceil(Math.sqrt(num)) }, (_, i) => i + 2).every(
+    (i) => num % i !== 0
+  );
+```
+
+This code defines a function called `isPrime` that takes a number `num` as input. It checks if the number is prime by performing the following steps:
+
+1. The condition `num > 1` ensures that the number is greater than 1, as prime numbers are defined as greater than 1.
+
+2. The code creates an array using `Array.from` with a length equal to the ceiling value of the square root of `num`. This array will contain numbers starting from 2 up to the square root of `num`.
+
+3. The `every` method is called on the array, which checks if every element in the array satisfies a given condition.
+
+4. The condition `(i) => num % i !== 0` is used to check if `num` is divisible by any of the numbers in the array (`i`). If the remainder of the division between `num` and any `i` is not equal to 0, it means that `num` is not divisible by `i`, indicating that it could be a prime number.
+
+5. If all elements in the array satisfy the condition, the `every` method returns `true`, indicating that the number is prime. Otherwise, it returns `false`.
+
+#### Usage
+
+```javascript
+console.log(isPrime(7)); // true
+console.log(isPrime(12)); // false
+console.log(isPrime(23)); // true
+console.log(isPrime(49)); // false
 ```
