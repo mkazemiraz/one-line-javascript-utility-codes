@@ -686,8 +686,14 @@ console.log(newArray); // [1, 2, "new item", 3, 4]
 ### Add commas to number
 
 ```javascript
-const addCommasToNumber = (value) =>
-  value.toString().replace(/(\d)(?=(\d{3})+(\.|$))/g, "$1,");
+const addCommasToNumber = (number) =>
+  number
+    .toString()
+    .split(".")
+    .map((part, index) =>
+      index === 0 ? part.replace(/\B(?=(\d{3})+(?!\d))/g, ",") : part
+    )
+    .join(".");
 ```
 
 #### Code Explanation
