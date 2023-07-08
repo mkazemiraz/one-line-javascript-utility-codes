@@ -51,6 +51,7 @@ So go ahead, explore the repository, and unlock the potential of these one-line 
 - [Check if arrays / objects are equal](#check-if-arrays--objects-are-equal)
 - [Add a new item to the array at the specified position](#add-a-new-item-to-the-array-at-the-specified-position)
 - [Add commas to number](#add-commas-to-number)
+- [Flatten a nested array](#flatten-a-nested-array)
 
 ### Copy text to clipboard
 
@@ -720,4 +721,46 @@ Here's a breakdown of the code:
 
 ```javascript
 console.log(addCommasToNumber(12345.6789)); // 12,345.6789
+```
+
+### Flatten a nested array
+
+```javascript
+const flattenArray = (arr) =>
+  arr.reduce(
+    (flat, current) =>
+      flat.concat(Array.isArray(current) ? flattenArray(current) : current),
+    []
+  );
+```
+
+#### Code Explanation
+
+this code recursively flattens a nested array by iteratively concatenating the sub-arrays into a single flat array.
+
+Here's a breakdown of the code:
+
+1. The `flattenArray` function takes an array (`arr`) as input.
+
+2. Inside the function, the `reduce` method is used on the input array.
+
+3. The `reduce` method iterates over each element of the array, accumulating a new value based on the logic provided.
+
+4. The initial value for the accumulator is an empty array (`[]`).
+
+5. For each element of the array, a check is performed using the `Array.isArray()` method to determine if the element is an array itself.
+
+6. If the element is an array, the `flattenArray` function is recursively called on that sub-array.
+
+7. If the element is not an array, it is directly concatenated to the accumulated value (`flat`).
+
+8. The result of each iteration is the flattened array accumulated in the `flat` variable.
+
+9. Once all elements have been processed, the `reduce` method returns the final flattened array.
+
+#### Usage
+
+```javascript
+const numbers = [1, 2, [3, 4, [5, 6]], 7];
+console.log(flattenArray(numbers)); // [1, 2, 3, 4, 5, 6, 7]
 ```
