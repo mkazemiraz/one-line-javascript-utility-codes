@@ -55,7 +55,12 @@ So go ahead, explore the repository, and unlock the potential of these one-line 
 ### Copy text to clipboard
 
 ```javascript
-const copyToClipboard = text => addEventListener('click', _ => navigator.clipboard.writeText(text).catch(console.warn), {once: true});
+const copyToClipboard = (text) =>
+  addEventListener(
+    "click",
+    (_) => navigator.clipboard.writeText(text).catch(console.warn),
+    { once: true }
+  );
 ```
 
 #### Code Explanation
@@ -64,7 +69,8 @@ The code snippet provided defines a JavaScript function called `copyToClipboard`
 
 The function utilizes the `navigator.clipboard.writeText()` method, which is a built-in browser API for writing text to the clipboard. This method takes the `text` parameter as input and attempts to write it to the clipboard and returns a `Promise`. We chain `Promise.prototype.catch()` to handle errors or exceptions.
 
-Asynchronous `clipboard` write and read requires the calling `document` to be focused (user activation). `addEventListener('click', handler, {once: true})` is used to copy text to the clipboard when the `window` of the calling `document` is clicked after the function is called. 
+Asynchronous `clipboard` write and read requires the calling `document` to be focused (user activation). `addEventListener('click', handler, {once: true})` is used to copy text to the clipboard when the `window` of the calling `document` is clicked after the function is called.
+
 #### Usage
 
 ```javascript
@@ -681,7 +687,7 @@ console.log(newArray); // [1, 2, "new item", 3, 4]
 
 ```javascript
 const addCommasToNumber = (value) =>
-  value.toString().replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
+  value.toString().replace(/(\d)(?=(\d{3})+(\.|$))/g, "$1,");
 ```
 
 #### Code Explanation
