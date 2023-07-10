@@ -53,6 +53,7 @@ So go ahead, explore the repository, and unlock the potential of these one-line 
 - [Add commas to number](#add-commas-to-number)
 - [Flatten a nested array](#flatten-a-nested-array)
 - [Check if a Number is Prime](#check-if-a-number-is-prime)
+- [Check if a string is a palindrome](#check-if-a-string-is-a-palindrome)
 
 ### Copy text to clipboard
 
@@ -776,6 +777,8 @@ const isPrime = (num) =>
   );
 ```
 
+#### Code Explanation
+
 This code defines a function called `isPrime` that takes a number `num` as input. It checks if the number is prime by performing the following steps:
 
 1. The condition `num > 1` ensures that the number is greater than 1, as prime numbers are defined as greater than 1.
@@ -796,3 +799,42 @@ console.log(isPrime(12)); // false
 console.log(isPrime(23)); // true
 console.log(isPrime(49)); // false
 ```
+
+### Check if a string is a palindrome
+
+```javascript
+const isPalindrome = (str) =>
+  str.toLowerCase().replace(/[^a-z0-9]/g, "") ===
+  str
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, "")
+    .split("")
+    .reverse()
+    .join("");
+```
+
+#### Code Explanation
+
+This code checks if a given string is a palindrome. Here's a breakdown of the code:
+
+1. `str.toLowerCase()` converts the string to lowercase to make the comparison case-insensitive.
+
+2. `.replace(/[^a-z0-9]/g, '')` removes any non-alphanumeric characters from the string using a regular expression. This step ensures that only letters and numbers are considered in the palindrome check.
+
+3. `===` is the equality operator that compares the modified string with the reversed version of itself.
+
+4. `.split('').reverse().join('')` splits the modified string into an array of individual characters, reverses the order of the array, and then joins the characters back together into a string.
+
+5. The result of the comparison is a boolean value (`true` if the string is a palindrome, `false` otherwise).
+
+#### Usage
+
+```javascript
+const str1 = "A man, a plan, a canal: Panama";
+const str2 = "Hello, World!";
+
+console.log(isPalindrome(str1)); // Output: true
+console.log(isPalindrome(str2)); // Output: false
+```
+
+> Note that this code treats letters as case-insensitive and removes non-alphanumeric characters before performing the palindrome check.
